@@ -614,6 +614,36 @@ html, body, #root {
   border-bottom-color: var(--ct-orange);
 }
 
+.media-preview {
+  margin: 12px 0 16px;
+  border: 1px solid var(--ct-border);
+  background: var(--ct-bg-deep);
+  overflow: hidden;
+}
+
+.media-preview a { display: block; position: relative; color: var(--ct-text-primary); }
+.media-preview img { display: block; width: 100%; height: auto; }
+.media-preview--portrait img { max-height: 360px; object-fit: contain; }
+.media-preview__expand {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 6px 8px;
+  background: rgba(10, 10, 14, 0.9);
+  border: 1px solid var(--ct-orange);
+  font-size: 10px;
+}
+.media-preview a:hover .media-preview__expand { background: var(--ct-orange); color: #000; }
+.media-preview a:focus-visible { outline: 2px solid var(--ct-orange); outline-offset: -2px; }
+.media-preview figcaption {
+  padding: 9px 10px;
+  border-top: 1px solid var(--ct-border);
+  color: var(--ct-text-secondary);
+  font-size: 10px;
+  line-height: 1.6;
+}
+.project-card__link { overflow-wrap: anywhere; }
+
 /* Cert items */
 .cert-item {
   display: flex;

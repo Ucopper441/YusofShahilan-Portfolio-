@@ -1,4 +1,10 @@
 import React from 'react';
+import MediaPreview from './MediaPreview';
+import posImage from '../assets/POSsystem.png';
+import mosqueImage from '../assets/masjidalquddus.png';
+import coffeeImage from '../assets/coffeehauz.png';
+import scheduleImage from '../assets/schedulconvertermmu.png';
+import shahpiniImage from '../assets/Shahpini.png';
 
 const projects = [
   {
@@ -24,6 +30,7 @@ const projects = [
   },
   {
     name: 'POS System',
+    image: posImage,
     desc: 'A point-of-sale (POS) system project.',
     url: 'https://github.com/Ucopper441/POS-System-',
     urlLabel: 'View on GitHub',
@@ -31,6 +38,7 @@ const projects = [
   },
   {
     name: 'Masjid Al-Quddus',
+    image: mosqueImage,
     desc: 'A production web platform developed to handle digital presence and community engagement for the mosque.',
     url: 'https://masjidalquddus.my',
     urlLabel: 'masjidalquddus.my',
@@ -38,6 +46,7 @@ const projects = [
   },
   {
     name: 'Coffee Hauz',
+    image: coffeeImage,
     desc: 'Designed and deployed the official landing page for an outdoor industrial cafe in Taman Pinggiran Putra, focusing on brand identity and clean UI.',
     url: 'https://coffeehauz.com.my',
     urlLabel: 'coffeehauz.com.my',
@@ -45,6 +54,7 @@ const projects = [
   },
   {
     name: 'MMU Schedule Wallpaper Converter',
+    image: scheduleImage,
     desc: 'A browser-based utility using Tesseract.js for client-side OCR parsing and html2canvas to export customized student lock screen wallpapers.',
     url: 'https://mmu-schedule-wallpaper-converter.vercel.app/',
     urlLabel: 'mmu-schedule-wallpaper-converter.vercel.app',
@@ -52,6 +62,7 @@ const projects = [
   },
   {
     name: 'Perniagaan Shahpini',
+    image: shahpiniImage,
     desc: 'Engineered a custom production website and Vercel domain configuration for a Seri Kembangan construction contractor.',
     url: 'https://shahpini.com',
     urlLabel: 'shahpini.com',
@@ -81,6 +92,9 @@ export default function ProjectsWindow() {
             <span style={{ color: 'var(--ct-orange)', marginRight: '6px' }}>[{String(i).padStart(2, '0')}]</span>
             {project.name}
           </div>
+          {project.image && (
+            <MediaPreview src={project.image} alt={`${project.name} interface screenshot`} caption={`${project.name} · Interface preview`} />
+          )}
           <p className="project-card__desc">{project.desc}</p>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
             <div className="tag-list">
