@@ -116,7 +116,7 @@ html, body, #root {
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  width: 80px;
+  width: 124px;
   padding: 8px 4px;
   background: none;
   border: 1px solid transparent;
@@ -126,6 +126,16 @@ html, body, #root {
   transition: all 0.15s;
   border-radius: 2px;
 }
+
+.app-icon { width: 20px; height: 20px; display: inline-block; flex-shrink: 0; vertical-align: middle; }
+.desktop-icon__glyph .app-icon { width: 30px; height: 30px; color: var(--ct-orange); }
+.os-taskbar__tab { gap: 6px; flex-shrink: 0; }
+.os-taskbar__tab .app-icon { width: 16px; height: 16px; }
+.os-taskbar__tabs { min-width: 0; }
+.os-taskbar__start, .os-taskbar__tray { flex-shrink: 0; }
+.floating-photo__title { display: flex; align-items: center; gap: 6px; }
+.floating-photo__title .app-icon { width: 16px; height: 16px; }
+.desktop-icon:focus-visible { outline: 2px solid var(--ct-orange); outline-offset: -2px; }
 
 .desktop-icon:hover {
   background: rgba(232, 117, 26, 0.08);
@@ -145,7 +155,8 @@ html, body, #root {
 .desktop-icon__label {
   font-size: 10px;
   text-align: center;
-  word-break: break-all;
+  word-break: normal;
+  white-space: nowrap;
   color: var(--ct-text-secondary);
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
@@ -778,14 +789,16 @@ html, body, #root {
   .desktop-icons {
     top: 10px;
     left: 10px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 4px;
+    right: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px 4px;
   }
 
   .desktop-icon {
-    width: 60px;
-    padding: 6px 2px;
+    width: 100%;
+    min-height: 76px;
+    padding: 10px 2px;
   }
 
   .desktop-icon__glyph {
@@ -793,8 +806,10 @@ html, body, #root {
   }
 
   .desktop-icon__label {
-    font-size: 8px;
+    font-size: 11px;
   }
+
+  .desktop-icon__extension { display: none; }
 
   .os-taskbar {
     height: 36px;

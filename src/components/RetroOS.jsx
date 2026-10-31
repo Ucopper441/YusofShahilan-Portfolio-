@@ -8,6 +8,7 @@ import ContactWindow from './ContactWindow';
 import AchievementsWindow from './AchievementsWindow';
 import CertificationsWindow from './CertificationsWindow';
 import FloatingPhoto from './FloatingPhoto';
+import AppIcon from './AppIcon';
 
 const WINDOWS = [
   { id: 'home', label: 'home.exe', icon: '🏠', component: HomeWindow },
@@ -113,11 +114,12 @@ export default function RetroOS() {
                 <button
                   key={win.id}
                   className="desktop-icon"
-                  onDoubleClick={() => openWindow(win.id)}
+                  title={win.label}
+                  aria-label={`Open ${win.id}`}
                   onClick={() => openWindow(win.id)}
                 >
-                  <span className="desktop-icon__glyph">{win.icon}</span>
-                  <span className="desktop-icon__label">{win.label}</span>
+                  <span className="desktop-icon__glyph"><AppIcon name={win.id} /></span>
+                  <span className="desktop-icon__label">{win.id}<span className="desktop-icon__extension">.exe</span></span>
                 </button>
               ))}
             </div>
@@ -164,7 +166,7 @@ export default function RetroOS() {
                   className={`os-taskbar__tab ${activeWindow === win.id && !win.minimized ? 'os-taskbar__tab--active' : ''}`}
                   onClick={() => toggleMinimize(win.id)}
                 >
-                  <span style={{ marginRight: 4 }}>{win.icon}</span>
+                  <AppIcon name={win.id} />
                   {win.label}
                 </button>
               ))}
@@ -189,7 +191,7 @@ export default function RetroOS() {
                     className="start-menu__item"
                     onClick={() => openWindow(win.id)}
                   >
-                    <span className="start-menu__item-icon">{win.icon}</span>
+                    <span className="start-menu__item-icon"><AppIcon name={win.id} /></span>
                     <span className="start-menu__item-label">{win.label}</span>
                   </button>
                 ))}

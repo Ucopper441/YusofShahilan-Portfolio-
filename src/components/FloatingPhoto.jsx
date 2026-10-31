@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import portrait from '../assets/gamba.jpeg';
+import AppIcon from './AppIcon';
 
 export default function FloatingPhoto() {
   const frameRef = useRef(null);
@@ -69,7 +70,7 @@ export default function FloatingPhoto() {
         onPointerCancel={() => { dragRef.current = null; }}
         onLostPointerCapture={() => { dragRef.current = null; }}
       >
-        <span className="os-window__title">📷 yusof.jpeg</span>
+        <span className="os-window__title floating-photo__title"><AppIcon name="photo" /> yusof.jpeg</span>
         <button
           className="os-window__control"
           title={minimized ? 'Restore photo' : 'Minimize photo'}
