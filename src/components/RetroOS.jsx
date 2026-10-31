@@ -233,7 +233,10 @@ function DraggableWindow({ id, title, z, isActive, minimized, onFocus, onClose, 
         // Slight random offset so stacked windows don't perfectly overlap
         const offsetX = (Math.random() - 0.5) * 60;
         const offsetY = (Math.random() - 0.5) * 30;
-        setPos({ x: px + offsetX, y: py + offsetY });
+        setPos({
+          x: Math.max(0, Math.min(px + offsetX, parent.clientWidth - el.offsetWidth)),
+          y: Math.max(0, Math.min(py + offsetY, parent.clientHeight - el.offsetHeight)),
+        });
         setInitialized(true);
       }
     }

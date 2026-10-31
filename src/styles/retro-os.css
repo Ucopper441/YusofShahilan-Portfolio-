@@ -368,8 +368,8 @@ html, body, #root {
 
 .os-window {
   position: absolute;
-  width: min(680px, calc(100vw - 40px));
-  height: min(500px, calc(100vh - 100px));
+  width: min(800px, calc(100% - 40px));
+  height: min(580px, calc(100% - 40px));
   display: flex;
   flex-direction: column;
   background: var(--ct-bg-surface);
@@ -902,7 +902,7 @@ html, body, #root {
   position: absolute;
   right: 18px;
   bottom: 18px;
-  width: min(260px, calc(100% - 20px));
+  width: min(290px, calc(100% - 20px));
   max-height: 100%;
   overflow: hidden;
   z-index: 1900;
